@@ -56,8 +56,10 @@ def get_top_20_activities():
 
 
 # TODO:Top 20 pe un anumit joc/activitate
-def get_top_20_streams_by_activity(activity):
-    pass
+def get_top_20_streams_by_activity(id_activity, name_activity):
+    response = get_response(TOP_STREAMS_URL, '?game_id=' + id_activity)
+    export_response(response, "top20_streams_" + name_activity)
+    print_response(response)
 
 
 # TODO:ceva despre utilizatori, dar nu stiu ce
@@ -68,3 +70,8 @@ if __name__ == '__main__':
 
     top_20_streams = get_top_20_streams()
     top_20_activities = get_top_20_activities()
+
+    get_top_20_streams_by_activity('516575', "VALORANT")
+    # VALORANT - 516575
+    # Grand Theft Auto V - 32982
+    # Dota 2 - 29595
