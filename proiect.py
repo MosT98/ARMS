@@ -1,5 +1,6 @@
 import json
 import requests
+from datetime import date, datetime
 
 # Pentru luat OAUTH token
 # https://id.twitch.tv/oauth2/authorize
@@ -33,21 +34,24 @@ def print_response(response):
     print(printed_response)
 
 
-def export_response(response):
+def export_response(response, title):
     response = response.json()
-    with open("top_stream.json", "w", encoding='utf-8') as fd:
+    today = date.today().strftime("%Y%m%d")
+    time = datetime.now().strftime("%H%M")
+    filename = title + "-" + today + "_" + time + ".json"
+    with open(filename, "w", encoding='utf-8') as fd:
         json.dump(response, fd, indent=4)
 
 
 def get_top_20_streams():
     response = get_response(TOP_STREAMS_URL, '')
-    print_response(response)
+    export_response(response, "top20_streams")
     return response
 
 
 def get_top_20_activities():
     response = get_response(TOP_GAMES_URL, '')
-    print_response(response)
+    export_response(response, "top20_activities")
     return response
 
 
@@ -62,9 +66,5 @@ def get_top_20_streams_by_activity(activity):
 if __name__ == '__main__':
     # helix = twitch.Helix(client_id=CLIENT_ID, bearer_token=OAUTH_TOKEN)
 
-    # top_20_streams = get_top_20_streams()
-    # export_response(top_20_streams)
-
-
+    top_20_streams = get_top_20_streams()
     top_20_activities = get_top_20_activities()
-    # export_response(top_20_activities)
