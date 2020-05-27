@@ -1,6 +1,7 @@
 import json
 import requests
 from datetime import date, datetime
+import pandas as pd
 
 # Pentru luat OAUTH token
 # https://id.twitch.tv/oauth2/authorize
@@ -68,10 +69,15 @@ def get_top_20_streams_by_activity(id_activity, name_activity):
 if __name__ == '__main__':
     # helix = twitch.Helix(client_id=CLIENT_ID, bearer_token=OAUTH_TOKEN)
 
-    top_20_streams = get_top_20_streams()
-    top_20_activities = get_top_20_activities()
+    # top_20_streams = get_top_20_streams()
+    # top_20_activities = get_top_20_activities()
+    #
+    # get_top_20_streams_by_activity('516575', "VALORANT")
 
-    get_top_20_streams_by_activity('516575', "VALORANT")
+    # df = pd.read_json(r'W:\Faculty\ARMS\top20_activities-20200523_1421.json')
+    # export_csv = df.to_csv(r'W:\Faculty\ARMS\top20_activities-20200523_1421.csv', index=None, header=True)
+    df = pd.read_json(r'W:\Faculty\ARMS\top20_streams-20200523_1421.json')
+    export_csv = df.to_csv(r'W:\Faculty\ARMS\top20_streams-20200523_1421.csv', index=None, header=True)
     # VALORANT - 516575
     # Grand Theft Auto V - 32982
     # Dota 2 - 29595
