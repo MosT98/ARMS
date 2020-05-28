@@ -24,6 +24,7 @@ TOP_STREAMS_URL = 'https://api.twitch.tv/helix/streams'
 GAMES_URL = 'https://api.twitch.tv/helix/games'
 USERS_FOLLOWERS_URL = "https://api.twitch.tv/helix/users/follows"
 USERS_FOLLOWED_URL = "https://api.twitch.tv/helix/users/follows"
+USERS_URL = "https://api.twitch.tv/helix/users"
 
 
 def get_response(input_url, query):
@@ -83,8 +84,57 @@ def get_user_followed_by(user):
     export_response(response, "Top_20_followed/top20_followed_by_" + user[1])
 
 
-def get_users_data_from_all_jsons():
-    None
+def get_users_nodes_from_all_jsons(users):
+    userIDs = []
+    for user in users:
+        if not user.__contains__(user[0]):
+            userIDs.append(user[0])
+        with open("Top_20_followers/top20_followers_" + user[1]+".json") as data_file:
+            data = JSON.load(data_file)
+            for v in data["data"]:
+                if not userIDs.__contains__(v["from_id"]):
+                    userIDs.append(v["from_id"])
+        with open("Top_20_followed/top20_followed_by_" + user[1]+".json") as data_file:
+            data = JSON.load(data_file)
+            for v in data["data"]:
+                if not userIDs.__contains__(v["to_id"]):
+                    userIDs.append(v["to_id"])
+    print(len(userIDs))
+    f = open("user_data.csv", "a")
+    f.write("id,username,type,broadcaster_type,views\n")
+    print("id,username,type,broadcaster_type,views")
+
+    for userid in userIDs:
+        response = get_response(USERS_URL, '?id=' + userid)
+        details = response.json()["data"][0]
+        f.write(details["id"]+","+details["display_name"]+","+details["type"]+','+details["broadcaster_type"]+","+str(details["view_count"])+'\n')
+        print(details["id"]+","+details["display_name"]+","+details["type"]+','+details["broadcaster_type"]+","+str(details["view_count"]))
+    f.close()
+
+def get_user_edges_from_all_jsons(users):
+    validIDs = []
+    with open('user_data.csv') as fp:
+        line = fp.readline()
+        cnt = 1
+        while line:
+            fields = line.split(',')
+            validIDs.append(fields[0])
+            line = fp.readline()
+            cnt += 1
+    f = open("user_edges.csv", "a")
+    f.write("Source,Target,Type,Weight\n")
+    for user in users:
+        with open("Top_20_followers/top20_followers_" + user[1] + ".json") as data_file:
+            data = JSON.load(data_file)
+            for v in data["data"]:
+                if validIDs.__contains__(v["from_id"]) and validIDs.__contains__(v["to_id"]):
+                    f.write(v["from_id"]+","+v["to_id"]+",Directed,0.2\n")
+        with open("Top_20_followed/top20_followed_by_" + user[1] + ".json") as data_file:
+            data = JSON.load(data_file)
+            for v in data["data"]:
+                if validIDs.__contains__(v["from_id"]) and validIDs.__contains__(v["to_id"]):
+                    f.write(v["from_id"]+","+v["to_id"]+",Directed,0.2\n")
+    f.close()
 
 # TODO:ceva despre utilizatori, dar nu stiu ce
 
@@ -106,6 +156,8 @@ if __name__ == '__main__':
     # Dota 2 - 29595
 
     users = get_users_ids_from_json('top20_streams-20200527_1043.json')
-    for user in users:
-        get_user_followers(user)
-        get_user_followed_by(user)
+    # for user in users:
+    #     get_user_followers(user)
+    #     get_user_followed_by(user)
+    # get_users_nodes_from_all_jsons(users)
+    get_user_edges_from_all_jsons(users)
