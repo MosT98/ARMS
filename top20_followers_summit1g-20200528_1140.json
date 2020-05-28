@@ -1,0 +1,148 @@
+{
+    "total": 5341070,
+    "data": [
+        {
+            "from_id": "69384116",
+            "from_name": "chabik",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:39:26Z"
+        },
+        {
+            "from_id": "186526650",
+            "from_name": "MoralCrisis",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:39:06Z"
+        },
+        {
+            "from_id": "108824984",
+            "from_name": "axis_smg",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:38:06Z"
+        },
+        {
+            "from_id": "62943111",
+            "from_name": "Xanato77",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:37:46Z"
+        },
+        {
+            "from_id": "38558054",
+            "from_name": "screlox",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:37:36Z"
+        },
+        {
+            "from_id": "153091166",
+            "from_name": "xemilninjax",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:37:12Z"
+        },
+        {
+            "from_id": "42593134",
+            "from_name": "Murfdog2013",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:36:37Z"
+        },
+        {
+            "from_id": "120248012",
+            "from_name": "korvmedmos97",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:35:38Z"
+        },
+        {
+            "from_id": "211555924",
+            "from_name": "whojr",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:35:36Z"
+        },
+        {
+            "from_id": "143898935",
+            "from_name": "ShinyUmbreonRL",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:35:25Z"
+        },
+        {
+            "from_id": "179565864",
+            "from_name": "roman_018",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:35:19Z"
+        },
+        {
+            "from_id": "149246700",
+            "from_name": "maybejelle",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:35:16Z"
+        },
+        {
+            "from_id": "520484038",
+            "from_name": "FeliFox335",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:34:13Z"
+        },
+        {
+            "from_id": "173738512",
+            "from_name": "timaaaay831",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:33:52Z"
+        },
+        {
+            "from_id": "474214001",
+            "from_name": "euanehuse",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:33:46Z"
+        },
+        {
+            "from_id": "489722481",
+            "from_name": "flipaseatandcheat",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:33:24Z"
+        },
+        {
+            "from_id": "481891536",
+            "from_name": "exxotic_reaper",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:32:53Z"
+        },
+        {
+            "from_id": "410983736",
+            "from_name": "r3dwheat92",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:32:48Z"
+        },
+        {
+            "from_id": "441655031",
+            "from_name": "odin7777777777",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:31:38Z"
+        },
+        {
+            "from_id": "536582796",
+            "from_name": "enxmier",
+            "to_id": "26490481",
+            "to_name": "summit1g",
+            "followed_at": "2020-05-28T08:31:31Z"
+        }
+    ],
+    "pagination": {
+        "cursor": "eyJiIjpudWxsLCJhIjp7IkN1cnNvciI6IjE1OTA2NTQ2OTE5OTU1MTU2NzUifX0"
+    }
+}
