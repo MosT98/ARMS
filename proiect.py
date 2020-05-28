@@ -42,7 +42,8 @@ def export_response(response, title):
     response = response.json()
     today = date.today().strftime("%Y%m%d")
     time = datetime.now().strftime("%H%M")
-    filename = title + "-" + today + "_" + time + ".json"
+    # filename = title + "-" + today + "_" + time + ".json"
+    filename = title + ".json"
     with open(filename, "w", encoding='utf-8') as fd:
         json.dump(response, fd, indent=4)
 
@@ -75,11 +76,15 @@ def get_users_ids_from_json(json):
 
 def get_user_followers(user):
     response = get_response(USERS_FOLLOWERS_URL, '?to_id='+user[0])
-    export_response(response, "top20_followers_" + user[1])
+    export_response(response, "Top_20_followers/top20_followers_" + user[1])
 
 def get_user_followed_by(user):
     response = get_response(USERS_FOLLOWED_URL, '?from_id='+user[0])
-    export_response(response, "top20_followed_by_" + user[1])
+    export_response(response, "Top_20_followed/top20_followed_by_" + user[1])
+
+
+def get_users_data_from_all_jsons():
+    None
 
 # TODO:ceva despre utilizatori, dar nu stiu ce
 
